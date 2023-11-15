@@ -2,6 +2,7 @@ package net.gideon.mccourse;
 
 import com.mojang.logging.LogUtils;
 import net.gideon.mccourse.block.ModBlocks;
+import net.gideon.mccourse.item.ModCreativeModeTabs;
 import net.gideon.mccourse.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -25,6 +26,8 @@ public class MCCourseMod {
     private static final Logger LOGGER = LogUtils.getLogger();
     public MCCourseMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
