@@ -23,6 +23,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.ALEXANDRITE_BLOCK.get());
                         output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
+                        output.accept(ModBlocks.ALEXANDRITE_ORE.get());
+
 
 
                     }).build());
