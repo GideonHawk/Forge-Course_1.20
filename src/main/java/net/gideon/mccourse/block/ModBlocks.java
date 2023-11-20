@@ -1,6 +1,7 @@
 package net.gideon.mccourse.block;
 
 import net.gideon.mccourse.MCCourseMod;
+import net.gideon.mccourse.block.custom.SoundBlock;
 import net.gideon.mccourse.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -41,6 +42,9 @@ public class ModBlocks {
      public static final RegistryObject<Block> NETHER_ALEXANDRITE_ORE = registerBlock("nether_alexandrite_ore",
              () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                      .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(2, 5)));
+     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
+             () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
+
 
 
 
