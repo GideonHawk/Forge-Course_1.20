@@ -43,7 +43,7 @@ public class ModBlocks {
              () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)
                      .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(2, 5)));
      public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
-             () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
+             () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE).requiresCorrectToolForDrops()));
 
 
 

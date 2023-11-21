@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "AAA"
+  ],
+  "key": {
+    "A": {
+      "item": "mccourse:alexandrite"
+      },
+    "B": {
+      "item": "minecraft:note_block"
+    }
+  },
+    "result": {
+      "item": "mccourse:sound_block"
+  }
+}
