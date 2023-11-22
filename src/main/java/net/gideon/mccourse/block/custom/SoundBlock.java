@@ -1,8 +1,10 @@
 package net.gideon.mccourse.block.custom;
 
 import net.gideon.mccourse.MCCourseMod;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -12,12 +14,16 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class SoundBlock extends Block {
     public SoundBlock(Properties pProperties) {
@@ -40,7 +46,7 @@ public class SoundBlock extends Block {
 
                 pLevel.playSound(null, pPos, SoundEvents.NOTE_BLOCK_COW_BELL.get(), SoundSource.BLOCKS, 1f, 1f);
 
-                return InteractionResult.CONSUME;
+                return InteractionResult.SUCCESS;
             }
 
         }
@@ -62,5 +68,12 @@ public class SoundBlock extends Block {
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pMovedByPiston) {
         pLevel.playSound(null,pPos,SoundEvents.NOTE_BLOCK_BIT.get(), SoundSource.BLOCKS, 1f, 1f );
         super.onPlace(pState, pLevel, pPos, pOldState, pMovedByPiston);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+        pTooltip.add(Component.translatable("tooltip.mccourse.sound_block"));
+
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
 }

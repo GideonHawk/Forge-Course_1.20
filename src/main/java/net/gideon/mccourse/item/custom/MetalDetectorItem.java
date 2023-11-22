@@ -1,18 +1,24 @@
 package net.gideon.mccourse.item.custom;
 
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import org.antlr.v4.runtime.atn.BlockStartState;
+import org.jetbrains.annotations.Nullable;
 
 import java.awt.*;
+import java.util.List;
 
 public class MetalDetectorItem extends Item {
     public MetalDetectorItem(Properties pProperties) {
@@ -46,6 +52,19 @@ public class MetalDetectorItem extends Item {
                 player -> player.broadcastBreakEvent(player.getUsedItemHand()) );
 
         return InteractionResult.SUCCESS;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+        if (Screen.hasShiftDown()){
+            pTooltipComponents.add(Component.translatable("tooltip.mccourse.metal_detector.shift"));
+
+        }else {
+            pTooltipComponents.add(Component.translatable("tooltip.mccourse.metal_detector"));
+        }
+
+
+        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 
     private void outputNoValuableFound(Player player) {
